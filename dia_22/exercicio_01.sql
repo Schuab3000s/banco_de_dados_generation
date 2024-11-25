@@ -48,19 +48,21 @@ ORDER BY atk;
 
 SELECT nome, raça, atk, def FROM tb_personagens 
 WHERE def > 1000 AND def < 2000
-ORDER BY atk;
+ORDER BY def;
 
 -- Faça um SELECT utilizando o operador LIKE, buscando todes os personagens que possuam a letra C no atributo nome.
 
 SELECT nome, raça, atk, def FROM tb_personagens 
-WHERE nome LIKE '%C%';
+WHERE nome LIKE '%C%'
+ORDER BY nome;
 
 -- Faça um SELECT utilizando a cláusula INNER JOIN, unindo os dados da tabela tb_personagens com os dados da tabela tb_classes.
 
 SELECT p.nome, p.raça, p.atk, p.def, c.classe, c.mp
 FROM tb_personagens AS p 
 INNER JOIN tb_classes AS c
-ON p.id_classe = c.id;
+ON p.id_classe = c.id
+ORDER BY nome;
 
 /* Faça um SELECT utilizando a cláusula INNER JOIN, unindo os dados da tabela tb_personagens com os dados da tabela tb_classes, 
 onde traga apenas os personagens que pertençam a uma classe específica (Exemplo: Todes os personagens da classe dos arqueiros).*/
@@ -69,4 +71,5 @@ SELECT p.nome, p.raça, p.atk, p.def, c.classe, c.mp
 FROM tb_personagens AS p 
 INNER JOIN tb_classes AS c
 ON p.id_classe = c.id
-WHERE c.classe = 'Guerreiro';
+WHERE c.classe = 'Guerreiro'
+ORDER BY nome;

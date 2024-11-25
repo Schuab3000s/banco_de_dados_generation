@@ -35,23 +35,31 @@ INSERT INTO tb_produtos (nome, descricao, valor, quantidade, id_categoria) VALUE
 SELECT * FROM tb_produtos;
 
 -- Faça um SELECT que retorna todos os produtos cujo valor seja maior do que R$ 100,00
-SELECT nome, descricao, valor, quantidade FROM tb_produtos WHERE valor > 100.00;
+SELECT nome, descricao, valor, quantidade FROM tb_produtos 
+WHERE valor > 100.00
+ORDER BY valor;
 
 -- Faça um SELECT que retorna todos os produtos cujo valor esteja no intervalo R$ 70,00 e R$ 150,00
-SELECT nome, descricao, valor, quantidade FROM tb_produtos WHERE valor BETWEEN 70.00 AND 150.00;
+SELECT nome, descricao, valor, quantidade FROM tb_produtos 
+WHERE valor BETWEEN 70.00 AND 150.00
+ORDER BY valor;
 
 -- Faça um SELECT utilizando o operador LIKE, buscando todos os produtos que possuam a letra C no atributo nome
-SELECT nome, descricao, valor, quantidade FROM tb_produtos WHERE nome LIKE '%C%';
+SELECT nome, descricao, valor, quantidade FROM tb_produtos 
+WHERE nome LIKE '%C%'
+ORDER BY nome;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias
 SELECT p.nome AS produto, p.valor, c.nome AS categoria 
 FROM tb_produtos AS p
 INNER JOIN tb_categorias AS c 
-ON p.id_categoria = c.id;
+ON p.id_categoria = c.id
+ORDER BY produto;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias, filtrando por uma categoria específica (produtos hidráulicos)
 SELECT p.nome AS produto, p.valor, c.nome AS categoria 
 FROM tb_produtos AS p
 INNER JOIN tb_categorias AS c 
 ON p.id_categoria = c.id
-WHERE c.nome IN ('Hidráulica');
+WHERE c.nome IN ('Hidráulica')
+ORDER BY produto;

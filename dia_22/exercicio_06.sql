@@ -37,23 +37,31 @@ VALUES ('Java para Iniciantes', 'Curso básico de programação em Java', 600.00
 SELECT * FROM tb_cursos;
 
 -- Faça um SELECT que retorna todos os cursos cujo valor seja maior do que R$ 500,00
-SELECT nome, descricao, valor, carga_horaria FROM tb_cursos WHERE valor > 500.00;
+SELECT nome, descricao, valor, carga_horaria FROM tb_cursos 
+WHERE valor > 500.00
+ORDER BY valor;
 
 -- Faça um SELECT que retorna todos os cursos cujo valor esteja no intervalo R$ 600,00 e R$ 1000,00
-SELECT nome, descricao, valor, carga_horaria FROM tb_cursos WHERE valor BETWEEN 600.00 AND 1000.00;
+SELECT nome, descricao, valor, carga_horaria FROM tb_cursos 
+WHERE valor BETWEEN 600.00 AND 1000.00
+ORDER BY valor;
 
 -- Faça um SELECT utilizando o operador LIKE, buscando todos os cursos que possuam a letra J no atributo nome
-SELECT nome, descricao, valor, carga_horaria FROM tb_cursos WHERE nome LIKE '%J%';
+SELECT nome, descricao, valor, carga_horaria FROM tb_cursos
+WHERE nome LIKE '%J%'
+ORDER BY nome;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_cursos com os dados da tabela tb_categorias
 SELECT c.nome AS curso, c.valor, cat.nome AS categoria 
 FROM tb_cursos AS c
 INNER JOIN tb_categorias AS cat 
-ON c.id_categoria = cat.id;
+ON c.id_categoria = cat.id
+ORDER BY curso;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_cursos com os dados da tabela tb_categorias, filtrando por uma categoria específica (cursos de Java)
 SELECT c.nome AS curso, c.valor, cat.nome AS categoria 
 FROM tb_cursos AS c
 INNER JOIN tb_categorias AS cat 
 ON c.id_categoria = cat.id
-WHERE cat.nome IN ('Programação');
+WHERE cat.nome IN ('Programação')
+ORDER BY curso;

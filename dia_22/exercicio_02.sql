@@ -38,25 +38,30 @@ SELECT * FROM  tb_pizzas;
 
 -- Faça um SELECT que retorna todas as pizzas cujo valor seja maior do que R$ 45,00
 SELECT nome, descricao, valor FROM tb_pizzas 
-WHERE valor > 45.00;
+WHERE valor > 45.00
+ORDER BY valor;
 
 -- Faça um SELECT que retorna todas as pizzas cujo valor esteja no intervalo R$ 50,00 e R$ 100,00
 SELECT nome, descricao, valor FROM tb_pizzas 
-WHERE valor BETWEEN 50.00 AND 100.00;
+WHERE valor BETWEEN 50.00 AND 100.00
+ORDER BY valor;
 
 -- Faça um SELECT utilizando o operador LIKE, buscando todas as pizzas que possuam a letra M no atributo nome
 SELECT nome, descricao, valor FROM tb_pizzas 
-WHERE nome LIKE '%M%';
+WHERE nome LIKE '%M%'
+ORDER BY nome;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_pizzas com os dados da tabela tb_categorias
 SELECT p.nome AS pizza, p.valor, c.nome AS categoria 
 FROM tb_pizzas AS p
 INNER JOIN tb_categorias AS c 
-ON p.id_categoria = c.id;
+ON p.id_categoria = c.id
+ORDER BY pizza;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_pizzas com os dados da tabela tb_categorias, filtrando por uma categoria específica (pizzas doces)
 SELECT p.nome AS pizza, p.valor, c.nome AS categoria 
 FROM tb_pizzas AS p
 INNER JOIN tb_categorias AS c 
 ON p.id_categoria = c.id
-WHERE c.nome = 'Doce';
+WHERE c.nome = 'Doce'
+ORDER BY pizza;

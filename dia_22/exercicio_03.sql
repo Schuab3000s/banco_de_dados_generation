@@ -38,25 +38,30 @@ SELECT * FROM tb_produtos;
 
 -- Faça um SELECT que retorna todos os produtos cujo valor seja maior do que R$ 50,00
 SELECT nome, descricao, valor, quantidade FROM tb_produtos 
-WHERE valor > 50.00;
+WHERE valor > 50.00
+ORDER BY valor;
 
 -- Faça um SELECT que retorna todos os produtos cujo valor esteja no intervalo R$ 5,00 e R$ 60,00
 SELECT nome, descricao, valor, quantidade FROM tb_produtos 
-WHERE valor BETWEEN 5.00 AND 60.00;
+WHERE valor BETWEEN 5.00 AND 60.00
+ORDER BY valor;
 
 -- Faça um SELECT utilizando o operador LIKE, buscando todos os produtos que possuam a letra C no atributo nome
 SELECT nome, descricao, valor, quantidade FROM tb_produtos 
-WHERE nome LIKE '%C%';
+WHERE nome LIKE '%C%'
+ORDER BY nome;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias
 SELECT p.nome AS produto, p.valor, c.nome AS categoria 
 FROM tb_produtos AS p
 INNER JOIN tb_categorias AS c 
-ON p.id_categoria = c.id;
+ON p.id_categoria = c.id
+ORDER BY produto;
 
 -- Faça um SELECT utilizando INNER JOIN, unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias, filtrando por uma categoria específica (produtos de cosméticos)
 SELECT p.nome AS produto, p.valor, c.nome AS categoria 
 FROM tb_produtos AS p
 INNER JOIN tb_categorias AS c 
 ON p.id_categoria = c.id
-WHERE c.nome = 'Cosméticos';
+WHERE c.nome = 'Cosméticos'
+ORDER BY produto;
